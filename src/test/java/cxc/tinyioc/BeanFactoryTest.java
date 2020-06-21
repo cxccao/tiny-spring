@@ -1,7 +1,7 @@
 package cxc.tinyioc;
 
+import cxc.tinyioc.factory.AbstractBeanFactory;
 import cxc.tinyioc.factory.AutowireCapableBeanFactory;
-import cxc.tinyioc.factory.BeanFactory;
 import cxc.tinyioc.io.ResourceLoader;
 import cxc.tinyioc.xml.XmlBeanDefinitionReader;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ public class BeanFactoryTest {
     @Test
     public void test() throws Exception {
         // 初始化工厂
-        BeanFactory beanFactory= new AutowireCapableBeanFactory();
+        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
         // 读取xml
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
         xmlBeanDefinitionReader.loadBeanDefinitions("tinyioc.xml");
