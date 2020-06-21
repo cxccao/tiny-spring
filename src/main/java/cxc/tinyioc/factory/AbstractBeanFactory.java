@@ -12,14 +12,20 @@ public abstract class AbstractBeanFactory implements BeanFactory {
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
 
     @Override
-    public Object getBean(String name) {
-        return beanDefinitionMap.get(name).getBean();
+    public Object getBean(String name) throws Exception {
+        BeanDefinition beanDefinition = beanDefinitionMap.get(name);
+        if (beanDefinition == null) {
+            throw new IllegalAccessException("No bean named " + name + " is defined");
+        }
+        Object bean = beanDefinition.getBean();
+        if (bean == null) {
+            bean = doCreateBean(beanDefinition);
+        }
+        return bean;
     }
 
     @Override
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
-        Object object = doCreateBean(beanDefinition);
-        beanDefinition.setBean(object);
         beanDefinitionMap.put(name, beanDefinition);
     }
 

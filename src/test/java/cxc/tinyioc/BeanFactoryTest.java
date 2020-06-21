@@ -3,6 +3,7 @@ package cxc.tinyioc;
 import cxc.tinyioc.factory.AutowireCapableBeanFactory;
 import cxc.tinyioc.factory.BeanFactory;
 import cxc.tinyioc.io.ResourceLoader;
+import cxc.tinyioc.xml.XmlBeanDefinitionReader;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -25,5 +26,7 @@ public class BeanFactoryTest {
         // 获取Bean
         HelloService helloService = (HelloService) beanFactory.getBean("helloService");
         helloService.helloworld();
+        OutputService outputService = (OutputService) beanFactory.getBean("outputService");
+        outputService.output();
     }
 }
