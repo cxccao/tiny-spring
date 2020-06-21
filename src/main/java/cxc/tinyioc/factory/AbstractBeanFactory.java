@@ -2,6 +2,9 @@ package cxc.tinyioc.factory;
 
 import cxc.tinyioc.BeanDefinition;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,6 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
+    private final List<String> beanDefinitionNames = new ArrayList<>();
 
     @Override
     public Object getBean(String name) throws Exception {
@@ -27,6 +31,14 @@ public abstract class AbstractBeanFactory implements BeanFactory {
     @Override
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
         beanDefinitionMap.put(name, beanDefinition);
+        beanDefinitionNames.add(name);
+    }
+
+    public void preInstantiateSingletons() throws Exception {
+        for (Iterator it = this.beanDefinitionNames.iterator(); it.hasNext(); ) {
+            String beanName = (String) it.next();
+            getBean(beanName);
+        }
     }
 
     /**

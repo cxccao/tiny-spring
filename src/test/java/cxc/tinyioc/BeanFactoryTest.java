@@ -25,8 +25,8 @@ public class BeanFactoryTest {
         }
         // 获取Bean
         HelloService helloService = (HelloService) beanFactory.getBean("helloService");
-        helloService.helloworld();
+        helloService.helloworld("haha");
         OutputService outputService = (OutputService) beanFactory.getBean("outputService");
-        outputService.output();
+        outputService.output("hoho");
     }
 }

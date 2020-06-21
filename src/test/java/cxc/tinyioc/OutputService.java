@@ -6,8 +6,8 @@ package cxc.tinyioc;
 public class OutputService {
     private HelloService helloService;
 
-    public void output() {
-        helloService.helloworld();
+    public void output(String text) {
+        helloService.helloworld(text);
     }
 
     public void setHelloService(HelloService helloService) {

@@ -5,11 +5,17 @@ package cxc.tinyioc;
  */
 public class HelloService {
     private String text;
-    public void helloworld() {
+    private OutputService outputService;
+
+    public void helloworld(String text) {
         System.out.println(text);
     }
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public void setOutputService(OutputService outputService) {
+        this.outputService = outputService;
     }
 }

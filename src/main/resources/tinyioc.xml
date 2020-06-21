@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
     <bean name="helloService" class="cxc.tinyioc.HelloService">
-        <property name="text" value="Hello World!"></property>
+        <property name="text" value="Hello !"></property>
+    </bean>
+    <bean name="outputService" class="cxc.tinyioc.OutputService">
+        <property name="helloService" ref="helloService"></property>
     </bean>
 </beans>
