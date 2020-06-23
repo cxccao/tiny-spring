@@ -1,17 +1,17 @@
 package cxc.tinyioc.context;
 
-import cxc.tinyioc.BeanDefinition;
-import cxc.tinyioc.factory.AbstractBeanFactory;
-import cxc.tinyioc.factory.AutowireCapableBeanFactory;
-import cxc.tinyioc.io.ResourceLoader;
-import cxc.tinyioc.xml.XmlBeanDefinitionReader;
+import cxc.tinyioc.beans.BeanDefinition;
+import cxc.tinyioc.beans.factory.AbstractBeanFactory;
+import cxc.tinyioc.beans.factory.AutowireCapableBeanFactory;
+import cxc.tinyioc.beans.io.ResourceLoader;
+import cxc.tinyioc.beans.xml.XmlBeanDefinitionReader;
 
 import java.util.Map;
 
 /**
  * Created by cxc Cotter on 2020/6/21.
  */
-public class ClassPathXmlApplicationContext extends AbstarctApplicationContext {
+public class ClassPathXmlApplicationContext extends AbstractApplicationContext {
     private String configLocation;
 
     public ClassPathXmlApplicationContext(String configLocation) throws Exception {
@@ -31,5 +31,6 @@ public class ClassPathXmlApplicationContext extends AbstarctApplicationContext {
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
             abstractBeanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
+        abstractBeanFactory.preInstantiateSingletons();
     }
 }
