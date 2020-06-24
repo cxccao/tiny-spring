@@ -1,10 +1,10 @@
-package cxc.tinyioc.xml;
+package cxc.tinyioc.beans.xml;
 
-import cxc.tinyioc.AbstractBeanDefinitionReader;
-import cxc.tinyioc.BeanDefinition;
-import cxc.tinyioc.BeanReference;
-import cxc.tinyioc.PropertyValue;
-import cxc.tinyioc.io.ResourceLoader;
+import cxc.tinyioc.beans.AbstractBeanDefinitionReader;
+import cxc.tinyioc.beans.BeanDefinition;
+import cxc.tinyioc.beans.BeanReference;
+import cxc.tinyioc.beans.PropertyValue;
+import cxc.tinyioc.beans.io.ResourceLoader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

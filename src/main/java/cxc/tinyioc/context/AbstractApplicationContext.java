@@ -1,14 +1,14 @@
 package cxc.tinyioc.context;
 
-import cxc.tinyioc.factory.AbstractBeanFactory;
+import cxc.tinyioc.beans.factory.AbstractBeanFactory;
 
 /**
  * Created by cxc Cotter on 2020/6/21.
  */
-public class AbstarctApplicationContext implements ApplicationContext {
+public class AbstractApplicationContext implements ApplicationContext {
     protected AbstractBeanFactory abstractBeanFactory;
 
-    public AbstarctApplicationContext(AbstractBeanFactory abstractBeanFactory) {
+    public AbstractApplicationContext(AbstractBeanFactory abstractBeanFactory) {
         this.abstractBeanFactory = abstractBeanFactory;
     }
 

@@ -1,4 +1,4 @@
-package cxc.tinyioc.factory;
+package cxc.tinyioc.beans.factory;
 
 /**
  * Created by cxc Cotter on 2020/6/19.

@@ -3,7 +3,7 @@
     <bean name="outputService" class="cxc.tinyioc.OutputService">
         <property name="helloService" ref="helloService"></property>
     </bean>
-    <bean name="helloService" class="cxc.tinyioc.HelloService">
+    <bean name="helloService" class="cxc.tinyioc.HelloServiceImpl">
         <property name="text" value="Hello !"></property>
         <property name="outputService" ref="outputService"></property>
     </bean>

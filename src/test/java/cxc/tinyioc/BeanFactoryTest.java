@@ -1,9 +1,10 @@
 package cxc.tinyioc;
 
-import cxc.tinyioc.factory.AbstractBeanFactory;
-import cxc.tinyioc.factory.AutowireCapableBeanFactory;
-import cxc.tinyioc.io.ResourceLoader;
-import cxc.tinyioc.xml.XmlBeanDefinitionReader;
+import cxc.tinyioc.beans.BeanDefinition;
+import cxc.tinyioc.beans.factory.AbstractBeanFactory;
+import cxc.tinyioc.beans.factory.AutowireCapableBeanFactory;
+import cxc.tinyioc.beans.io.ResourceLoader;
+import cxc.tinyioc.beans.xml.XmlBeanDefinitionReader;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

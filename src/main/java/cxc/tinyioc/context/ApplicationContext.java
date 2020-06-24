@@ -1,6 +1,6 @@
 package cxc.tinyioc.context;
 
-import cxc.tinyioc.factory.BeanFactory;
+import cxc.tinyioc.beans.factory.BeanFactory;
 
 /**
  * Created by cxc Cotter on 2020/6/21.

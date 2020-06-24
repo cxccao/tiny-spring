@@ -1,9 +1,8 @@
-package cxc.tinyioc.factory;
+package cxc.tinyioc.beans.factory;
 
-import cxc.tinyioc.BeanDefinition;
+import cxc.tinyioc.beans.BeanDefinition;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -34,8 +33,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
     }
 
     public void preInstantiateSingletons() throws Exception {
-        for (Iterator it = this.beanDefinitionNames.iterator(); it.hasNext(); ) {
-            String beanName = (String) it.next();
+        for (String beanName : this.beanDefinitionNames) {
             getBean(beanName);
         }
     }

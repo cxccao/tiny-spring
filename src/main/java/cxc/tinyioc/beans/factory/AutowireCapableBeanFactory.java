@@ -1,8 +1,8 @@
-package cxc.tinyioc.factory;
+package cxc.tinyioc.beans.factory;
 
-import cxc.tinyioc.BeanDefinition;
-import cxc.tinyioc.BeanReference;
-import cxc.tinyioc.PropertyValue;
+import cxc.tinyioc.beans.BeanDefinition;
+import cxc.tinyioc.beans.BeanReference;
+import cxc.tinyioc.beans.PropertyValue;
 
 import java.lang.reflect.Field;
 

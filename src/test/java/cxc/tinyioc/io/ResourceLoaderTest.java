@@ -1,5 +1,7 @@
 package cxc.tinyioc.io;
 
+import cxc.tinyioc.beans.io.Resource;
+import cxc.tinyioc.beans.io.ResourceLoader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

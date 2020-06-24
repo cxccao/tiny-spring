@@ -1,7 +1,8 @@
 package cxc.tinyioc.xml;
 
-import cxc.tinyioc.BeanDefinition;
-import cxc.tinyioc.io.ResourceLoader;
+import cxc.tinyioc.beans.BeanDefinition;
+import cxc.tinyioc.beans.io.ResourceLoader;
+import cxc.tinyioc.beans.xml.XmlBeanDefinitionReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

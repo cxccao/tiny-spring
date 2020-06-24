@@ -1,6 +1,6 @@
-package cxc.tinyioc;
+package cxc.tinyioc.beans;
 
-import cxc.tinyioc.io.ResourceLoader;
+import cxc.tinyioc.beans.io.ResourceLoader;
 
 import java.util.HashMap;
 import java.util.Map;

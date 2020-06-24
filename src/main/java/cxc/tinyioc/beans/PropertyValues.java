@@ -1,4 +1,4 @@
-package cxc.tinyioc;
+package cxc.tinyioc.beans;
 
 import java.util.ArrayList;
 import java.util.List;

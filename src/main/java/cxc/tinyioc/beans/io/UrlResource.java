@@ -1,4 +1,4 @@
-package cxc.tinyioc.io;
+package cxc.tinyioc.beans.io;
 
 import java.io.InputStream;
 import java.net.URL;
