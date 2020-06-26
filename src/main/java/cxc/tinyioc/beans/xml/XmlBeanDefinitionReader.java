@@ -54,7 +54,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
     }
 
     private void processBeanDefinition(Element element) throws IllegalAccessException {
-        String name = element.getAttribute("name");
+        String name = element.getAttribute("id");
         String className = element.getAttribute("class");
         BeanDefinition beanDefinition = new BeanDefinition();
         processProperty(element, beanDefinition);

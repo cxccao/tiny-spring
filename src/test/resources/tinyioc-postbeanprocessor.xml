@@ -7,4 +7,5 @@
         <property name="text" value="Hello !"></property>
         <property name="outputService" ref="outputService"></property>
     </bean>
+    <bean id="beanInitializeLogger" class="cxc.tinyioc.BeanInitializeLogger"></bean>
 </beans>

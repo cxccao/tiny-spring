@@ -16,4 +16,11 @@ public class ApplicationContextTest {
         OutputService outputService = (OutputService) applicationContext.getBean("outputService");
         outputService.output("ref ref ref");
     }
+
+    @Test
+    public void testPostBeanProcessor() throws Exception {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("tinyioc-postbeanprocessor.xml");
+        HelloService helloService = (HelloService) applicationContext.getBean("helloService");
+        helloService.helloworld("hello");
+    }
 }
