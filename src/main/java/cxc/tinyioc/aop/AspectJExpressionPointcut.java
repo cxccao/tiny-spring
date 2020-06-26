@@ -55,13 +55,13 @@ public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodM
     }
 
     @Override
-    public boolean matches(Class targetClass) {
+    public boolean matches(Class<?> targetClass) {
         checkReadyToMatch();
         return pointcutExpression.couldMatchJoinPointsInType(targetClass);
     }
 
     @Override
-    public boolean matches(Method method, Class targetClass) {
+    public boolean matches(Method method, Class<?> targetClass) {
         checkReadyToMatch();
         ShadowMatch shadowMatch = pointcutExpression.matchesMethodExecution(method);
         if (shadowMatch.alwaysMatches()) {
