@@ -1,5 +1,6 @@
 package cxc.tinyioc.aop;
 
+import cxc.tinyioc.Book;
 import cxc.tinyioc.HelloService;
 import cxc.tinyioc.HelloServiceImpl;
 import cxc.tinyioc.context.ApplicationContext;
@@ -7,9 +8,9 @@ import cxc.tinyioc.context.ClassPathXmlApplicationContext;
 import org.junit.jupiter.api.Test;
 
 /**
- * Created by cxc Cotter on 2020/6/22.
+ * Created by cxc Cotter on 2020/6/27.
  */
-public class JdkDynamicAopProxyTest {
+public class Cglib2AopProxyTest {
     @Test
     public void test() throws Exception {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("tinyioc.xml");
@@ -22,9 +23,16 @@ public class JdkDynamicAopProxyTest {
         TimeInterceptor timeInterceptor = new TimeInterceptor();
         advisedSupport.setMethodInterceptor(timeInterceptor);
         // 创建代理
-        JdkDynamicAopProxy jdkDynamicAopProxy = new JdkDynamicAopProxy(advisedSupport);
-        HelloService helloServiceProxy = (HelloService) jdkDynamicAopProxy.getProxy();
+        Cglib2AopProxy cglib2AopProxy = new Cglib2AopProxy(advisedSupport);
+        HelloService helloServiceProxy = (HelloService) cglib2AopProxy.getProxy();
         // 基于aop调用
-        helloServiceProxy.helloworld("hello jdkProxy");
+        helloServiceProxy.helloworld("hello cglibProxy");
+    }
+
+    @Test
+    public void testAutoProxy() throws Exception {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("tinyioc-classproxy.xml");
+        Book book = (Book) applicationContext.getBean("book");
+        book.bookInfo();
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="book" class="cxc.tinyioc.Book">
+        <property name="name" value="Gone with the wind"></property>
+        <property name="price" value="69.9"></property>
+    </bean>
+
+    <bean id="timeInterceptor" class="cxc.tinyioc.aop.TimeInterceptor"></bean>
+    <bean id="autoProxyCreator" class="cxc.tinyioc.aop.AspectJAwareAdvisorAutoProxyCreator"></bean>
+    <bean id="aspectjAspect" class="cxc.tinyioc.aop.AspectJExpressionPointcutAdvisor">
+        <property name="advice" ref="timeInterceptor"></property>
+        <property name="expression" value="execution(* cxc.tinyioc.*.*(..))"></property>
+    </bean>
+</beans>

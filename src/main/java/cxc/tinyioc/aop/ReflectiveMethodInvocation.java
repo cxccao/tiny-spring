@@ -9,9 +9,9 @@ import java.lang.reflect.Method;
  * Created by cxc Cotter on 2020/6/22.
  */
 public class ReflectiveMethodInvocation implements MethodInvocation {
-    private Object target;
-    private Method method;
-    private Object[] args;
+    protected Object target;
+    protected Method method;
+    protected Object[] args;
 
     public ReflectiveMethodInvocation(Object target, Method method, Object[] args) {
         this.target = target;

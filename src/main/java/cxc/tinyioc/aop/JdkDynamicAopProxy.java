@@ -10,17 +10,15 @@ import java.lang.reflect.Proxy;
  * 基于jdk的动态代理
  * Created by cxc Cotter on 2020/6/22.
  */
-public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {
-    private AdvisedSupport advised;
-
+public class JdkDynamicAopProxy extends AbstractAopProxy implements InvocationHandler {
     public JdkDynamicAopProxy(AdvisedSupport advised) {
-        this.advised = advised;
+        super(advised);
     }
 
     @Override
     public Object getProxy() {
         return Proxy.newProxyInstance(getClass().getClassLoader(),
-                advised.getTargetSource().getTargetClass(), this);
+                advised.getTargetSource().getInterfaces(), this);
     }
 
     @Override
