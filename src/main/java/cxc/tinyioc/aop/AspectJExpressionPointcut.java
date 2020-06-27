@@ -54,12 +54,14 @@ public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodM
         this.expression = expression;
     }
 
+    // 匹配类，大概率不准确！
     @Override
     public boolean matches(Class<?> targetClass) {
         checkReadyToMatch();
         return pointcutExpression.couldMatchJoinPointsInType(targetClass);
     }
 
+    // 匹配方法
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
         checkReadyToMatch();
