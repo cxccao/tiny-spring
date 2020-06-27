@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 /**
  * Created by cxc Cotter on 2020/6/19.
  */
-public class AutowireCapableBeanFactory extends AbstractBeanFactory{
+public class AutowireCapableBeanFactory extends AbstractBeanFactory {
     @Override
     protected void applyPropertyValues(Object bean, BeanDefinition beanDefinition) throws Exception {
         if (bean instanceof BeanFactoryAware) {

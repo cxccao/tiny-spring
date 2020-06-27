@@ -12,7 +12,7 @@ public class BeanDefinition {
     public BeanDefinition() {}
 
     public BeanDefinition(Object bean) {
-        this.bean=bean;
+        this.bean = bean;
     }
 
     public Object getBean() {
@@ -20,7 +20,7 @@ public class BeanDefinition {
     }
 
     public void setBean(Object bean) {
-        this.bean=bean;
+        this.bean = bean;
     }
 
     public Class getBeanClass() {
