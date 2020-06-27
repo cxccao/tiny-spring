@@ -1,6 +1,7 @@
 package cxc.tinyioc.aop;
 
 import cxc.tinyioc.HelloService;
+import cxc.tinyioc.OutputService;
 import cxc.tinyioc.context.ApplicationContext;
 import cxc.tinyioc.context.ClassPathXmlApplicationContext;
 import org.junit.jupiter.api.Test;
@@ -25,5 +26,12 @@ public class JdkDynamicAopProxyTest {
         HelloService helloServiceProxy = (HelloService) jdkDynamicAopProxy.getProxy();
         // 基于aop调用
         helloServiceProxy.helloworld("hello aop ");
+    }
+
+    @Test
+    public void testAutoProxy() throws Exception {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("tinyioc.xml");
+        OutputService outputService = (OutputService) applicationContext.getBean("outputService");
+        outputService.output("hello");
     }
 }

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-    <bean id="outputService" class="cxc.tinyioc.OutputService">
+    <bean id="outputService" class="cxc.tinyioc.OutputServiceImpl">
         <property name="helloService" ref="helloService"></property>
     </bean>
     <bean id="helloService" class="cxc.tinyioc.HelloServiceImpl">
         <property name="text" value="Hello !"></property>
         <property name="outputService" ref="outputService"></property>
+    </bean>
+    <bean id="timeInterceptor" class="cxc.tinyioc.aop.TimeInterceptor"></bean>
+    <bean id="autoProxyCreator" class="cxc.tinyioc.aop.AspectJAwareAdvisorAutoProxyCreator"></bean>
+    <bean id="aspectjAspect" class="cxc.tinyioc.aop.AspectJExpressionPointcutAdvisor">
+        <property name="advice" ref="timeInterceptor"></property>
+        <property name="expression" value="execution(* cxc.tinyioc.*.*(..))"></property>
     </bean>
 </beans>

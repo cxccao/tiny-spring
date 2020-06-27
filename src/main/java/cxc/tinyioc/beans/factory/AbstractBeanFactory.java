@@ -25,12 +25,13 @@ public abstract class AbstractBeanFactory implements BeanFactory {
         Object bean = beanDefinition.getBean();
         if (bean == null) {
             bean = doCreateBean(beanDefinition);
-            initializeBean(bean, name);
+            bean = initializeBean(bean, name);
+            beanDefinition.setBean(bean);
         }
         return bean;
     }
 
-    protected void initializeBean(Object bean, String beanName) throws Exception {
+    protected Object initializeBean(Object bean, String beanName) throws Exception {
         for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
             bean = beanPostProcessor.postProcessBeforeInitialization(bean, beanName);
         }
@@ -39,6 +40,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
         for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
             bean = beanPostProcessor.postProcessAfterInitialization(bean, beanName);
         }
+        return bean;
     }
 
     protected Object createBeanInstance(BeanDefinition beanDefinition) throws Exception {
@@ -70,7 +72,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
         this.beanPostProcessors.add(beanPostProcessor);
     }
 
-    public List getBeanForType(Class<?> type) throws Exception {
+    public List getBeansForType(Class<?> type) throws Exception {
         List<Object> beans = new ArrayList<>();
         for (String beanDefinitionName : beanDefinitionNames) {
             if (type.isAssignableFrom(beanDefinitionMap.get(beanDefinitionName).getBeanClass())) {
